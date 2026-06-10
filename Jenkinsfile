@@ -38,11 +38,11 @@ pipeline {
                     docker run -d --name %MYSQL_CONT% --network %NETWORK% ^
                         -e MYSQL_ROOT_PASSWORD=%MYSQL_PWD% ^
                         -e MYSQL_DATABASE=%MYSQL_DB% ^
-                        -p 3306:3306 ^
+                        -p 3308:3306 ^
                         mysql:8.0
  
                     echo Waiting for MySQL to initialise...
-                    timeout /t 30
+                    ping 127.0.0.1 -n 31 >nul
                 ) ELSE (
                     echo MySQL already running.
                 )
