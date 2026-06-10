@@ -27,7 +27,7 @@ pipeline {
  
         stage('Start MySQL') {
             steps {
-                bat """
+                bat '''
                 docker network create %NETWORK% 2>nul
  
                 docker ps -q -f name=^/%MYSQL_CONT%$ > temp.txt
@@ -46,20 +46,20 @@ pipeline {
                 ) ELSE (
                     echo MySQL already running.
                 )
-                """
+                '''
             }
         }
  
         stage('Run API') {
             steps {
-                bat """
+                bat '''
                 docker rm -f %API_CONT% 2>nul
  
                 docker run -d --name %API_CONT% --network %NETWORK% ^
                     -e ConnectionStrings__DefaultConnection="Server=%MYSQL_CONT%;Port=3306;Database=%MYSQL_DB%;User=root;Password=%MYSQL_PWD%;" ^
                     -p 5000:8080 ^
                     %IMAGE%
-                """
+                '''
             }
         }
     }
