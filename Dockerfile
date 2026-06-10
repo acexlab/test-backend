@@ -11,6 +11,6 @@ RUN dotnet publish "ToDoApi.csproj" -c Release -o /app/publish /p:UseAppHost=fal
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
 COPY --from=build /app/publish .
-EXPOSE 5140
-ENV ASPNETCORE_URLS=http://+:5140
+EXPOSE 8080
+ENV ASPNETCORE_URLS=http://+:8080
 ENTRYPOINT ["dotnet", "ToDoApi.dll"]

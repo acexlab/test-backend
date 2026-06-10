@@ -49,7 +49,10 @@ if (app.Environment.IsDevelopment())
 // CORS Middleware
 app.UseCors("Angular");
 
-app.UseHttpsRedirection();
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
 
 app.UseAuthorization();
 
