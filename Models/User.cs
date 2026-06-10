@@ -1,4 +1,4 @@
-namespace TodoApi.Models;
+namespace ToDoApi.Models;
 
 public class User
 {

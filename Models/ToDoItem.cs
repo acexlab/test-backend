@@ -1,4 +1,4 @@
-namespace TodoApi.Models;
+namespace ToDoApi.Models;
 
 public class TodoItem
 {
@@ -10,11 +10,11 @@ public class TodoItem
 
     public bool IsCompleted { get; set; }
 
+    public string Priority { get; set; } = "Medium";
+
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-    // Foreign Key
     public int UserId { get; set; }
 
-    // Navigation Property
     public User User { get; set; } = null!;
 }

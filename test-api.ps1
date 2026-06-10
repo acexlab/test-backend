@@ -1,5 +1,5 @@
 # CHANGE THIS TO MATCH YOUR API URL
-$baseUrl = "http://localhost:5068/api"
+$baseUrl = "http://localhost:5140/api"
 
 Write-Host ""
 Write-Host "====================================="
@@ -62,6 +62,7 @@ Write-Host "====================================="
 $todoBody = @{
     title = "Learn Angular"
     description = "Finish Todo App"
+    priority = "High"
 } | ConvertTo-Json
 
 $todoId = $null
@@ -116,6 +117,7 @@ if ($todoId) {
         title = "Updated Todo"
         description = "Updated Description"
         isCompleted = $true
+        priority = "Low"
     } | ConvertTo-Json
 
     try {

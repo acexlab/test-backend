@@ -1,4 +1,4 @@
-namespace TodoApi.DTOs;
+namespace ToDoApi.DTOs;
 
 public class RegisterDtos
 {

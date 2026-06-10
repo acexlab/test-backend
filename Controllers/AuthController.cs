@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TodoApi.Data;
-using TodoApi.DTOs;
-using TodoApi.Models;
+using ToDoApi.Data;
+using ToDoApi.DTOs;
+using ToDoApi.Models;
 
-namespace TodoApi.Controllers;
+namespace ToDoApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

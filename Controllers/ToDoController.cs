@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TodoApi.Data;
-using TodoApi.DTOs;
-using TodoApi.Models;
+using ToDoApi.Data;
+using ToDoApi.DTOs;
+using ToDoApi.Models;
 
-namespace TodoApi.Controllers;
+namespace ToDoApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -48,6 +48,7 @@ public class TodoController : ControllerBase
             Title = dto.Title,
             Description = dto.Description,
             IsCompleted = false,
+            Priority = string.IsNullOrWhiteSpace(dto.Priority) ? "Medium" : dto.Priority,
             UserId = 1
         };
 
@@ -71,6 +72,7 @@ public class TodoController : ControllerBase
         todo.Title = dto.Title;
         todo.Description = dto.Description;
         todo.IsCompleted = dto.IsCompleted;
+        todo.Priority = string.IsNullOrWhiteSpace(dto.Priority) ? "Medium" : dto.Priority;
 
         await _context.SaveChangesAsync();
 
